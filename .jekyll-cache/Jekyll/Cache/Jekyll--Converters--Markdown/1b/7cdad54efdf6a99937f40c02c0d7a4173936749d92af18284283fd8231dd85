@@ -1,0 +1,538 @@
+I"ò¤<!-- ArXiv: [1905.09263](https://github.com/moneybrain-research) -->
+
+<h1 id="abstract">Abstract</h1>
+<p>Several of the latest GAN-based vocoders show remarkable achievements, outperforming autoregressive and flow-based competitors in both qualitative and quantitative measures while synthesizing orders of magnitude faster. In this work, we hypothesize that the common factor underlying their success is the multi-resolution discriminating framework, not the minute details in architecture, loss function, or training strategy. We experimentally test the hypothesis by evaluating six different generators paired with one shared multi-resolution discriminating framework. For all evaluative measures with respect to text-to-speech syntheses and for all perceptual metrics, their performances are not distinguishable from one another, which supports our hypothesis.</p>
+
+<h1 id="audio-samples">Audio Samples</h1>
+
+<p><strong>Note</strong>: Different rows correspond to different speech contents. For experimental details please refer to the paper.</p>
+
+<h2 id="ground-truth-mel-spectrogram-reconstruction">Ground truth mel spectrogram reconstruction</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ground<br />Truth</th>
+      <th style="text-align: left">Ours</th>
+      <th style="text-align: left">HiFi-GAN</th>
+      <th style="text-align: left">MelGAN</th>
+      <th style="text-align: left">Parallel<br />WaveGAN</th>
+      <th style="text-align: left">Universal<br />MelGAN</th>
+      <th style="text-align: left">VocGAN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/gt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/gt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/gt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/gt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/gt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/gt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="text-to-speech-syntheses">Text-to-speech syntheses</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Ground<br />Truth</th>
+      <th style="text-align: left">Ours</th>
+      <th style="text-align: left">HiFi-GAN</th>
+      <th style="text-align: left">MelGAN</th>
+      <th style="text-align: left">Parallel<br />WaveGAN</th>
+      <th style="text-align: left">Universal<br />MelGAN</th>
+      <th style="text-align: left">VocGAN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ003-0307.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ005-0101.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ007-0217.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ008-0131.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ010-0262.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ010-0293.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ018-0119.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ021-0049.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ028-0134.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ032-0100.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ034-0083.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ036-0216.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ037-0219.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ037-0222.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ040-0161.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ043-0183.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ045-0081.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ045-0147.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ045-0204.wav" controls="" preload="auto"></audio></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><audio src="assets/audio/_gt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-custom/tt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-hfg2/tt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-melgan/tt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-pwg/tt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-umg/tt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+      <td style="text-align: left"><audio src="assets/audio/_hfg2-vocgan/tt/LJ050-0276.wav" controls="" preload="auto"></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="citation">Citation</h1>
+
+<pre>
+@article{devlin2018bert,
+  title={BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  author={Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  journal={arXiv preprint arXiv:1810.04805},
+  year={2018}
+}
+</pre>
+
+<!-- # Some Template 
+
+Text can be **bold**, _italic_, or ~~strikethrough~~.
+
+[Link to another page](./another-page.html).
+
+There should be whitespace between paragraphs.
+
+There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+
+# Header 1
+
+This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+
+## Header 2
+
+> This is a blockquote following a header.
+>
+> When something is important enough, you do it even if the odds are not in your favor.
+
+### Header 3
+
+```js
+// Javascript code with syntax highlighting.
+var fun = function lang(l) {
+  dateformat.i18n = require('./lang/' + l)
+  return true;
+}
+```
+
+```ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
+```
+
+#### Header 4
+
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+
+##### Header 5
+
+1.  This is an ordered list following a header.
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
+
+###### Header 6
+
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
+
+### There's a horizontal rule below this.
+
+* * *
+
+### Here is an unordered list:
+
+*   Item foo
+*   Item bar
+*   Item baz
+*   Item zip
+
+### And an ordered list:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+
+### And a nested list:
+
+- level 1 item
+  - level 2 item
+  - level 2 item
+    - level 3 item
+    - level 3 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+
+### Small image
+
+![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
+
+### Large image
+
+![Branching](https://guides.github.com/activities/hello-world/branching.png)
+
+
+### Definition lists can be used with HTML syntax.
+
+<dl>
+<dt>Name</dt>
+<dd>Godzilla</dd>
+<dt>Born</dt>
+<dd>1952</dd>
+<dt>Birthplace</dt>
+<dd>Japan</dd>
+<dt>Color</dt>
+<dd>Green</dd>
+</dl>
+
+```
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+```
+
+```
+The final element.
+``` -->
+:ET
