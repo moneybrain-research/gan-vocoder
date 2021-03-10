@@ -1,14 +1,13 @@
 ---
 layout: default
 ---
-<!-- ArXiv: [1905.09263](https://github.com/moneybrain-research) -->
 
 # Abstract 
 Several of the latest GAN-based vocoders show remarkable achievements, outperforming autoregressive and flow-based competitors in both qualitative and quantitative measures while synthesizing orders of magnitude faster. In this work, we hypothesize that the common factor underlying their success is the multi-resolution discriminating framework, not the minute details in architecture, loss function, or training strategy. We experimentally test the hypothesis by evaluating six different generators paired with one shared multi-resolution discriminating framework. For all evaluative measures with respect to text-to-speech syntheses and for all perceptual metrics, their performances are not distinguishable from one another, which supports our hypothesis.
 
 # Audio Samples 
 
-**Note**: Different rows correspond to different speech contents. For experimental details please refer to the [[paper]](https://arxiv.org/abs/2102.08075).
+**Note**: Different rows correspond to different speech contents. For experimental details please refer to the [[paper]](https://arxiv.org/abs/2103.05236).
 
 ## Ground truth mel spectrogram reconstruction
 
@@ -67,7 +66,7 @@ Several of the latest GAN-based vocoders show remarkable achievements, outperfor
 @article{you2021ganvocoder,
   title={GAN Vocoder : Multi-Resolution Discriminator Is All You Need},
   author={Jaeseong You, Dalhyun Kim, Gyuhyeon Nam, Geumbyeol Hwang, Gyeongsu Chae},
-  journal={arXiv preprint arXiv:2102.08075},
+  journal={arXiv preprint arXiv:2103.05236},
   year={2021}
 }
 ```
