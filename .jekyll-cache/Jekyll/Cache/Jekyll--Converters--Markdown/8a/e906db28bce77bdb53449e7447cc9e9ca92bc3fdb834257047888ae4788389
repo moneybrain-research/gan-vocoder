@@ -1,11 +1,9 @@
-I"õ<!-- ArXiv: [1905.09263](https://github.com/moneybrain-research) -->
-
-<h1 id="abstract">Abstract</h1>
+I"Âô<h1 id="abstract">Abstract</h1>
 <p>Several of the latest GAN-based vocoders show remarkable achievements, outperforming autoregressive and flow-based competitors in both qualitative and quantitative measures while synthesizing orders of magnitude faster. In this work, we hypothesize that the common factor underlying their success is the multi-resolution discriminating framework, not the minute details in architecture, loss function, or training strategy. We experimentally test the hypothesis by evaluating six different generators paired with one shared multi-resolution discriminating framework. For all evaluative measures with respect to text-to-speech syntheses and for all perceptual metrics, their performances are not distinguishable from one another, which supports our hypothesis.</p>
 
 <h1 id="audio-samples">Audio Samples</h1>
 
-<p><strong>Note</strong>: Different rows correspond to different speech contents. For experimental details please refer to the <a href="https://arxiv.org/abs/2102.08075">[paper]</a>.</p>
+<p><strong>Note</strong>: Different rows correspond to different speech contents. For experimental details please refer to the <a href="https://arxiv.org/abs/2103.05236">paper</a>.</p>
 
 <h2 id="ground-truth-mel-spectrogram-reconstruction">Ground truth mel spectrogram reconstruction</h2>
 
@@ -405,11 +403,11 @@
 
 <h1 id="citation">Citation</h1>
 
-<pre><code class="language-plain">@article{you2021ganvocoder,
-  title={GAN Vocoder : Multi-Resolution Discriminator Is All You Need},
-  author={Jaeseong You, Dalhyun Kim, Gyuhyeon Nam, Geumbyeol Hwang, Gyeongsu Chae},
-  journal={arXiv preprint arXiv:2102.08075},
-  year={2021}
+<pre><code class="language-plain">@article{you2021b,
+  author = {Jaeseong You, Dalhyun Kim, Gyuhyeon Nam, Geumbyeol Hwang, Gyeongsu Chae},
+  title = {GAN Vocoder : Multi-Resolution Discriminator Is All You Need},
+  journal = {arXiv preprint arXiv:2103.05236},
+  year = {2021}
 }
 </code></pre>
 
