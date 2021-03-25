@@ -63,10 +63,12 @@ Several of the latest GAN-based vocoders show remarkable achievements, outperfor
 # Citation 
 
 ```plain
-@article{you2021b,
-  author = {Jaeseong You, Dalhyun Kim, Gyuhyeon Nam, Geumbyeol Hwang, Gyeongsu Chae},
-  title = {GAN Vocoder: Multi-Resolution Discriminator Is All You Need},
-  journal = {arXiv preprint arXiv:2103.05236},
-  year = {2021}
+@misc{you2021gan,
+      title={GAN Vocoder: Multi-Resolution Discriminator Is All You Need},
+      author={Jaeseong You and Dalhyun Kim and Gyuhyeon Nam and Geumbyeol Hwang and Gyeongsu Chae},
+      year={2021},
+      eprint={2103.05236},
+      archivePrefix={arXiv},
+      primaryClass={cs.SD}
 }
 ```
