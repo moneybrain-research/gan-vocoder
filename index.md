@@ -7,7 +7,7 @@ Several of the latest GAN-based vocoders show remarkable achievements, outperfor
 
 # Audio Samples 
 
-**Note**: Different rows correspond to different speech contents. For experimental details please refer to the [paper](https://arxiv.org/abs/2103.05236).
+**Note**: Different rows correspond to different speech contents. For experimental details, please refer to the [paper](https://arxiv.org/abs/2103.05236).
 
 ## Ground truth mel spectrogram reconstruction
 
